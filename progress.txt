@@ -1,0 +1,6 @@
+#1 - creating the repository structure 
+#2 - creating the landing page index.php
+#3 - adding a form on the page and adding the style 
+#4 - form action , creating a php script to handle form submit action 
+#5 - creation of an api to fetch all the tasks stored in the data folder as json 
+#6 - login page and session cookie
