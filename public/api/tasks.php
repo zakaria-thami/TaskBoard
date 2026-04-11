@@ -6,20 +6,21 @@ if (!isset($_SESSION["is_logged"]) || $_SESSION["is_logged"] !== true) {
     header("Location: /login.php");
     exit;
 }
-?>
 
-<?php
+#$file_path="../../data/tasks.json";
 
-$file_path="../../data/tasks.json";
+require_once "../../backend/db.php";
 
 header('Content-Type: application/json');
 
-if (file_exists($file_path)){
-    echo file_get_contents($file_path);
-}else{
-    echo "[]";
-}
+$sql="SELECT * FROM tasks WHERE user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->execute([1]) ;
 
+#fetch the data executed from stmt
 
+#PDO::FETCH_ASSOC to make the pdo return a clean array
+$tasks = $stmt->fetchall(PDO::FETCH_ASSOC);
 
+echo json_encode($tasks);
 exit;

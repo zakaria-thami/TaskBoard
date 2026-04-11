@@ -1,21 +1,14 @@
 <?php
 
-function save_task($label, $desc, $file_path){
-    if (file_exists($file_path)){
-        $data=json_decode( file_get_contents($file_path));
-    }else{
-        $data=[];
-    }
+function save_task($conn, $label, $desc, $user_id){
 
-    $new_task = new stdClass();
+    $sql="INSERT INTO tasks (label,description, user_id) VALUES (?, ?, ?)";
 
-    $new_task->label =$label;     
-    $new_task->desc = $desc;
+    //satement using PDO
+    $stmt = $conn->prepare($sql);
 
-    $data[]=$new_task;
-
-    $json_data=json_encode($data);
-    file_put_contents($file_path,$json_data);
+    //excute the statement passing an array of variable to fill the place holders
+    $stmt->execute([$label, $desc, $user_id]);
 
     return true;
 }

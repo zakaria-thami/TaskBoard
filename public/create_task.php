@@ -6,15 +6,15 @@ if (!isset($_SESSION["is_logged"]) || $_SESSION["is_logged"] !== true) {
     header("Location: /login.php");
     exit;
 }
-?>
 
-<?php
 require_once '../backend/functions.php';
+require_once '../backend/db.php';
+
 $label= $_POST["task_label"];
 $desc=$_POST["task_desc"];
 
-$file_path="../data/tasks.json";
-save_task($label,$desc,$file_path);
+#$file_path="../data/tasks.json";
+save_task($conn, $label, $desc, 1);
 
 header("Location: /");
 exit;
