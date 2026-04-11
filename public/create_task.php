@@ -10,11 +10,12 @@ if (!isset($_SESSION["is_logged"]) || $_SESSION["is_logged"] !== true) {
 require_once '../backend/functions.php';
 require_once '../backend/db.php';
 
-$label= $_POST["task_label"];
-$desc=$_POST["task_desc"];
+$label = htmlspecialchars(trim($_POST['task_label']), ENT_QUOTES, 'UTF-8');
+$desc = htmlspecialchars(trim($_POST['task_desc']), ENT_QUOTES, 'UTF-8');
+
 
 #$file_path="../data/tasks.json";
-save_task($conn, $label, $desc, 1);
+save_task($conn, $label, $desc, $_SESSION['user_id']);
 
 header("Location: /");
 exit;

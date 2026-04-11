@@ -12,7 +12,7 @@ fetch("/api/tasks.php")
         const cardHTML=`
         <div class="card">
             <div class="title">${task.label}</div>
-            <div class="desc">${task.desc}</div>
+            <div class="desc">${task.description}</div>
         </div>
         `;
         board.innerHTML += cardHTML;

@@ -15,7 +15,7 @@ header('Content-Type: application/json');
 
 $sql="SELECT * FROM tasks WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->execute([1]) ;
+$stmt->execute([$_SESSION['user_id']]) ;
 
 #fetch the data executed from stmt
 

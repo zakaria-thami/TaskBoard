@@ -2,7 +2,7 @@
 
 function save_task($conn, $label, $desc, $user_id){
 
-    $sql="INSERT INTO tasks (label,description, user_id) VALUES (?, ?, ?)";
+    $sql="INSERT INTO tasks (label, description, user_id) VALUES (?, ?, ?)";
 
     //satement using PDO
     $stmt = $conn->prepare($sql);

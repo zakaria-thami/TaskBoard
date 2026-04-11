@@ -14,7 +14,7 @@ if (!isset($_SESSION["is_logged"]) || $_SESSION["is_logged"] !== true) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Index</title>
+    <title>Taskboard</title>
 </head>
 <body>
     <div class="header">
