@@ -34,13 +34,21 @@ if (!isset($_SESSION["is_logged"]) || $_SESSION["is_logged"] !== true) {
         </div>
     </div>
     
-    <div class="section">
-        <div class="title">
-                Tasks :
-            </div>
-        <div class="card_section" id="card_board">
-            
+    <div class="kanban-board">
+        <div class="column">
+            <h3>To do</h3>
+            <div id="col-todo" class="task-list"></div>
         </div>
+        <div class="column">
+            <h3>Doing</h3>
+            <div id="col-doing" class="task-list"></div>
+        </div>
+        <div class="column">
+            <h3>Done</h3>
+            <div id="col-done" class="task-list"></div>
+        </div>
+
+
     </div>
     
 <script src="app.js"></script>

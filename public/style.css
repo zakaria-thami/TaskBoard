@@ -27,6 +27,7 @@ body {
 
 /* --- 3. FORM & LOGIN STYLING --- */
 /* The task creation form */
+
 .task_section {
     background-color: #ebecf0;
     padding: 15px;
@@ -85,19 +86,56 @@ input[type="password"] {
     background-color: #026aa7;
 }
 
-/* --- 4. KANBAN CARDS (FLEXBOX) --- */
-.card_section {
+/* --- 4. KANBAN BOARD & COLUMNS --- */
+.kanban-board {
     display: flex;
     flex-direction: row;
-    gap: 15px;
-    flex-wrap: wrap;
+    gap: 20px;
+    /* align-items: flex-start prevents empty columns from stretching 
+       down to match the height of full columns */
+    align-items: flex-start; 
 }
 
+.column {
+    background-color: #ebecf0; /* Classic Trello gray bucket */
+    border-radius: 8px;
+    width: 320px; /* Fixed width for the columns */
+    padding: 15px;
+}
+
+.column h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #172b4d;
+}
+
+/* The invisible container inside the column that holds the cards */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Spaces the cards out vertically */
+    min-height: 50px; /* Keeps the bucket open even if it has no tasks */
+}
+
+/* --- 5. THE CARDS --- */
 .card {
     background-color: white;
     padding: 15px;
-    width: 250px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     border-left: 5px solid #0079bf;
+    /* We remove the fixed width so it perfectly fills the column */
+    width: auto; 
+}
+
+.card .title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #172b4d;
+}
+
+.card .desc {
+    font-size: 14px;
+    color: #5e6c84;
 }
